@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController
+  before_action :find_category, only: [:edit, :update, :show, :destory]
 def index
     @categories = Category.order(id: :desc)
     @categories = Category.where("title like ?", "%#{params[:keyword]}%").order(id: :desc) if params[:keyword]
@@ -19,15 +20,12 @@ def index
   end
   
   def show
-    @category = Category.find(params[:id])
   end
 
   def edit
-    @category = Category.find(params[:id])
   end
 
   def update
-    @category = Category.find(params[:id])
     if @category.update(category_params)
       redirect_to categories_path, notice:"update succeed!!"
     else
@@ -37,14 +35,15 @@ def index
   end
 
   def destroy
-    @category = Category.find(params[:id])
     @category.destroy
     redirect_to categories_path, notice:"Category was successfully destroyed"
 
   end
 
-
   private
+  def find_category
+    @category = Category.find(params[:id])
+  end
   def category_params
     params.require(:category).permit(:title)
   end

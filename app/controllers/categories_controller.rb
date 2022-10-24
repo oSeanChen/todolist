@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  before_action :find_category, only: [:edit, :update, :show, :destory]
+  before_action :find_category, only: [:edit, :update, :show, :destroy]
 def index
     @categories = Category.order(id: :desc)
     @categories = Category.where("title like ?", "%#{params[:keyword]}%").order(id: :desc) if params[:keyword]
@@ -12,7 +12,7 @@ def index
   def create
     @category = Category.new(category_params)
     if @category.save
-      redirect_to categories_path, notice: "create succeed!!"
+      redirect_to categories_path, notice: "Create succeed!!"
     else
       render :new
     end
@@ -27,7 +27,7 @@ def index
 
   def update
     if @category.update(category_params)
-      redirect_to categories_path, notice:"update succeed!!"
+      redirect_to categories_path, notice:"Update succeed!!"
     else
       render :edit
     end

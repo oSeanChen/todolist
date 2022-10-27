@@ -1,0 +1,22 @@
+AllCops:
+  NewCops: enable
+  Exclude:
+    - db/**/*
+    - config/**/*
+    - bin/**/*
+    - config.ru
+    - node_modules/**/*
+    - Rakefile
+    - vendor/**/*
+    - spec/**/*
+    - test/**/*
+
+  TargetRubyVersion: 3.1.2
+  SuggestExtensions: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/SymbolArray:
+  Exclude:
+    - "Gemfile"

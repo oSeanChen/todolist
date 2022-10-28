@@ -29,8 +29,10 @@
       </div>
       <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
         <div class="flex flex-shrink-0 items-center">
-          <img class="block h-8 w-auto lg:hidden" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
-          <img class="hidden h-8 w-auto lg:block" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
+          <a href="/">
+            <img class="block h-8 w-auto lg:hidden" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
+            <img class="hidden h-8 w-auto lg:block" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
+          </a>
         </div>
         <% if user_signed_in? %>
           <div class="hidden sm:ml-6 sm:block">
@@ -62,8 +64,10 @@
         <div class="text-gray-300 ml-5" >Hi, <%= current_user.username %></div>
         <%= link_to "Log out", destroy_user_session_path, method: "delete", class:"ml-5 text-gray-300" %>
       <% else %>
-        <%= link_to "Log in", new_user_session_path, class:"ml-3 text-gray-300" %>
-        <%= link_to "Registration", new_user_registration_path, class:"ml-8 text-gray-300"%>
+        <div class="flex items-center">
+          <%= link_to "Log in", new_user_session_path, class:"ml-3 text-gray-300" %>
+          <%= link_to "Registration", new_user_registration_path, class:"ml-8 text-gray-300"%>
+        </div>
       <% end %>
     </div>
   </div>

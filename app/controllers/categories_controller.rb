@@ -2,6 +2,7 @@
 
 class CategoriesController < ApplicationController
   before_action :find_category, only: %i[edit update show destroy]
+  before_action :authenticate_user!
   def index
     @categories = Category.order(id: :desc)
     @categories = Category.where('title like ?', "%#{params[:keyword]}%").order(id: :desc) if params[:keyword]

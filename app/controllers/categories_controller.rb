@@ -4,8 +4,8 @@ class CategoriesController < ApplicationController
   before_action :find_category, only: %i[edit update show destroy]
   before_action :authenticate_user!
   def index
-    @categories = Category.order(id: :desc)
-    @categories = Category.where('title like ?', "%#{params[:keyword]}%").order(id: :desc) if params[:keyword]
+    @categories = current_user.categories.order(id: :desc)
+    @categories = current_user.categories.where('title like ?', "%#{params[:keyword]}%").order(id: :desc) if params[:keyword]
   end
 
   def new
@@ -13,7 +13,7 @@ class CategoriesController < ApplicationController
   end
 
   def create
-    @category = Category.new(category_params)
+    @category = current_user.categories.new(category_params)
     if @category.save
       redirect_to categories_path, notice: 'Create succeed!!'
     else
@@ -43,7 +43,7 @@ class CategoriesController < ApplicationController
   private
 
   def find_category
-    @category = Category.find(params[:id])
+    @category = current_user.categories.find(params[:id])
   end
 
   def category_params

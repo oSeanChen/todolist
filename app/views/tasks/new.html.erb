@@ -1,7 +1,12 @@
 <h1>create task</h1>
-<%= form_with model:@task do |f| %>
-  <%= f.text_field :title %>
-  <%= f.label :title, "title" %>
-  <%= f.text_field :title %>
-  <%= f.label :title, "title" %>
+<%= form_with model: @task, url: category_tasks_path do |f| %>
+  <div>
+    <%= f.label :title, "title" %>
+    <%= f.text_field :title %>
+  </div>
+  <div>
+    <%= f.label :content, "content" %>
+    <%= f.text_field :content %>
+  </div>
+  <%= f.submit "Submit" %>
 <% end %>

@@ -21,7 +21,9 @@ class CategoriesController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @tasks = Task.all
+  end
 
   def edit; end
 

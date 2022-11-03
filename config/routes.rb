@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   end
   root to: 'pages#index'
 
-  resources :categories do
-    resources :tasks, except:[:show]
+  resources :categories, except:[:show] do
+    resources :tasks, shallow: true
   end
 
 end

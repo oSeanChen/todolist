@@ -1,6 +1,6 @@
 <div class="flex flex-col items-center">
-  <h1>create task</h1>
-  <%= form_with model: @task, url: category_tasks_path do |f| %>
+  <h1>edit task</h1>
+  <%= form_with model: @task, url: task_path, method: :patch do |f| %>
     <div>
       <%= f.label :title, "title" %>
       <%= f.text_field :title %>

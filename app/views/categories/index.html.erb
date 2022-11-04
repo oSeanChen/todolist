@@ -2,7 +2,7 @@
   <h1 class="text-5xl mb-5">Categories list</h1>
   <form action="./categories" method="get" class="mb-5">
     <input type="text" placeholder="Keywords for title" name="keyword" class="px-5 border border-gray-700 rounded-md pl-9 pr-3 " required="">
-    <button type="submit" class="mx-3 my-2  rounded-md bg-yellow-200">Search</button>
+    <button type="submit" class="px-2 py-1 rounded-md bg-gray-200 hover:bg-gray-600 hover:text-white">Search</button>
   </form>
 </div>
 <div class="flex flex-col">
@@ -10,14 +10,13 @@
     <div class="py-4 inline-block min-w-full sm:px-6 lg:px-8">
       <div class="overflow-hidden">
         <table class="min-w-full text-center">
-          <thead class="border-b bg-gray-800">
+          <thead class="border-b bg-gray-50">
             <tr>
-              <th scope="col" class="text-sm font-medium text-white px-6 py-4">
+              <th scope="col" class="text-sm font-medium px-6 py-4">
                 Title
               </th>
-              <th scope="col" class="text-sm font-medium text-white px-6 py-4">
-              </th>
-              <th scope="col" class="text-sm font-medium text-white px-6 py-4">
+              <th scope="col" class="text-sm font-medium px-6 py-4">
+                Action
               </th>
             </tr>
           </thead class="border-b">
@@ -25,8 +24,10 @@
             <% @categories.each do |category| %>
               <tr class="bg-white border-b">
                 <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap hover:text-red-500" ><%= link_to "#{category.title}",category_tasks_path(category) %></td>
-                <td class="border border-slate-700  hover:text-blue-500"><%= link_to 'Edit', edit_category_path(category) %></td>
-                <td class="border border-slate-700  hover:text-green-500"><%= link_to 'Delete', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <td >
+                  <%= link_to 'Edit', edit_category_path(category), class:"font-medium text-blue-600 dark:text-blue-500 hover:underline mr-5"%>
+                  <%= link_to 'Delete', category, method: :delete, data: { confirm: 'Are you sure?' }, class:"font-medium text-red-600 dark:text-red-500 hover:underline"%>
+                </td>
               </tr class="bg-white border-b">
             <% end %>
           </tbody>
@@ -36,5 +37,5 @@
   </div>
 </div>
 <div class="flex justify-center">
-  <%= link_to "create category", new_category_path, class:"px-3 py-2 bg-blue-200 rounded-md  hover:bg-blue-800 hover:text-white" %>
+  <%= link_to "Create Category", new_category_path, class:"px-3 py-2 bg-blue-200 rounded-md  hover:bg-blue-600 hover:text-white" %>
 </div>

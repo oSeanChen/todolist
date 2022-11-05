@@ -1,6 +1,18 @@
-<div class="h-screen flex justify-center items-center">
-  <div class="text-center">
-    <h1 class="mb-8 text-6xl mp-8">To Do List app</h1>
-    <p class="text-3xl">Manage your To Do List and have a better life for everything!!</p>
+<section class="bg-gray-50">
+  <div class="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen lg:items-center">
+    <div class="mx-auto max-w-xl text-center">
+      <h1 class="text-3xl font-extrabold sm:text-5xl">
+        To Do List
+        <strong class="font-extrabold text-blue-700 sm:block">
+          Bring efficiency to you
+        </strong>
+      </h1>
+      <p class="mt-4 sm:text-xl sm:leading-relaxed">
+        Press button below, create your account and manage list now!
+      </p>
+      <div class="mt-8 flex flex-wrap justify-center gap-4">
+        <%= link_to "Get Started for Registration", new_user_registration_path, class:"block w-full rounded bg-indigo-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-indigo-700 focus:outline-none focus:ring active:bg-indigo-500 sm:w-auto"%>
+      </div>
+    </div>
   </div>
-</div>
+</section>
